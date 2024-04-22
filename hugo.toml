@@ -1,0 +1,31 @@
+baseURL = 'https://ark-protocol.org/'
+languageCode = 'en-us'
+title = 'Ark Protocol'
+copyright = 'CC0: This work has been marked as dedicated to the public domain.'
+theme = 'hugo-theme-relearn'
+
+collapsibleMenu = true
+
+#TODO(stevenroose)
+#editURL = 'https://github.com/McShelby/hugo-theme-relearn/edit/main/exampleSite/content/${FilePath}'
+
+
+[params.author]
+  name = 'Steven Roose'
+
+[menu]
+  [[menu.shortcuts]]
+    name = "<i class='fa-fw fab fa-github'></i> GitHub"
+    url = 'https://github.com/ark-protocol/'
+    weight = 10
+
+  # [[menu.shortcuts]]
+  #   name = "<i class='fa-fw fas fa-tags'></i> Tags"
+  #   url = 'tags/'
+  #   weight = 40
+
+  [[menu.shortcuts]]
+    name = "<i class='fa-fw fa-brands fab fa-creative-commons'></i> Public Domain Attribution"
+    url = '/license'
+    weight = 100
+
