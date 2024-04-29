@@ -16,6 +16,5 @@ technical details of how these concepts actually work.
 A quick outline of the different aspects, as also outlined in the side menu:
 
 - [What are VTXOs?](vtxos)
-- [How do Ark rounds work?](rounds)
 - [How do Connectors work?](connectors)
-- [Out-of-Round payments](oor)
+- [Out-of-Round payments (Arkoor)](oor)
