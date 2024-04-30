@@ -18,3 +18,4 @@ A quick outline of the different aspects, as also outlined in the side menu:
 - [What are VTXOs?](vtxos)
 - [How do Connectors work?](connectors)
 - [Out-of-Round payments (Arkoor)](oor)
+- [Covenant-less Ark (clArk)](clark)
