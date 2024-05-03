@@ -16,7 +16,7 @@ collapsibleMenu = true
 [menu]
   [[menu.shortcuts]]
     name = "<i class='fa-fw fab fa-github'></i> GitHub"
-    url = 'https://github.com/ark-protocol/'
+    url = 'https://github.com/ark-protocol/ark-protocol.org'
     weight = 10
 
   # [[menu.shortcuts]]
