@@ -19,10 +19,10 @@ collapsibleMenu = true
     url = 'https://github.com/ark-protocol/ark-protocol.org'
     weight = 10
 
-  # [[menu.shortcuts]]
-  #   name = "<i class='fa-fw fas fa-tags'></i> Tags"
-  #   url = 'tags/'
-  #   weight = 40
+  [[menu.shortcuts]]
+    name = "<i class='fa-fw fa-brands fab fa-telegram'></i> Telegram Community"
+    url = 'https://t.me/ark_bitcoin'
+    weight = 20
 
   [[menu.shortcuts]]
     name = "<i class='fa-fw fa-brands fab fa-creative-commons'></i> Public Domain Attribution"
