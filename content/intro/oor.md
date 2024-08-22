@@ -50,7 +50,7 @@ spend, and has a strong incentive to keep that promise. In the case of a double
 spend, the signatures for both spends become known to the cheated user and this
 user can trivially proof to the public that the ASP has broken this promise.
 Since the ASP has a financial incentive to keep their business, they have a
-strong incentive to break this promise.
+strong incentive not to break this promise.
 
 Additionally, the OOR model is optional, a user receiving an OOR transaction
 can immediatelly submit the OOR VTXO to the next Ark round and swap it for a
