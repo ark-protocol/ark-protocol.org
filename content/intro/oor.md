@@ -48,7 +48,7 @@ collude and double spend** the transaction.
 In a reasonably-sized Ark, the ASP will promise to never make such a double
 spend, and has a strong incentive to keep that promise. In the case of a double
 spend, the signatures for both spends become known to the cheated user and this
-user can trivially proof to the public that the ASP has broken this promise.
+user can trivially prove to the public that the ASP has broken this promise.
 Since the ASP has a financial incentive to keep their business, they have a
 strong incentive not to break this promise.
 
