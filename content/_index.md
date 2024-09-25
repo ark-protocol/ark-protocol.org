@@ -52,7 +52,7 @@ These shares of UTXOs will be called **virtual UTXOs, or VTXOs**.
 
 These exchanges are coordinated by a central party, an **Ark Service Provider
 (ASP)**, that facilitates payments, but is never a custodian. Because the UTXO
-is shared among the users in the shared UTXO, they can claim back there Bitcoin
+is shared among the users in the shared UTXO, they can claim back their Bitcoin
 at all times without depending on the ASP by broadcasting their VTXO
 transactions.
 
