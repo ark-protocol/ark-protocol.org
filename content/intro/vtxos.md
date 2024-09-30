@@ -7,7 +7,7 @@ weight = 10
 A **virtual transaction output (VTXO)** is a Bitcoin transaction output that is
 held by a user, but is not confirmed on the chain. The Bitcoin protocol is made
 out of UTXOs (Unspent Transaction Outputs), which are destroyed and created in
-every transaction. Similarly, in the Ark protocol, VTXOs will be spend and
+every transaction. Similarly, in the Ark protocol, VTXOs will be spent and
 created in Ark transactions.
 
 The main difference between a VTXO and a UTXO is that VTXOs are off-chain. This
