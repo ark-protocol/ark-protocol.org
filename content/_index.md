@@ -6,7 +6,7 @@ title = "Ark Protocol"
 
 
 Ark is a layer-two protocol for making off-chain Bitcoin transactions.
-Initially published on the bitcoin-dev mailing list as *TBDXXX* by Burak, is
+Initially published on the bitcoin-dev mailing list as *TBDXXX* by Burak, it
 has since been named Ark and the protocol design has advanced significantly.
 
 The goal and result of the Ark protocol is a payments system where people can
@@ -52,7 +52,7 @@ These shares of UTXOs will be called **virtual UTXOs, or VTXOs**.
 
 These exchanges are coordinated by a central party, an **Ark Service Provider
 (ASP)**, that facilitates payments, but is never a custodian. Because the UTXO
-is shared among the users in the shared UTXO, they can claim back there Bitcoin
+is shared among the users in the shared UTXO, they can claim back their Bitcoin
 at all times without depending on the ASP by broadcasting their VTXO
 transactions.
 
@@ -71,7 +71,7 @@ signing an off-chain **forfeit transaction**, which sends their input VTXO to
 the ASP. In return, the ASP creates a new shared on-chain UTXO with the desired
 output VTXOs and broadcast that transaction.
 
-The way these transaction are made atomic, meaning that the sending doesn't
+The way these transactions are made atomic, meaning that the sender doesn't
 forfeit their VTXOs without having a guarantee that the newly created VTXOs
 will actually confirm, is by making the forfeit transaction dependent on the
 newly created shared UTXO transaction. This is done using **connector outputs**
