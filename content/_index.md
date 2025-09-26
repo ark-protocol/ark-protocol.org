@@ -5,98 +5,47 @@ title = "Ark Protocol"
 
 
 
-Ark is a layer-two protocol for making off-chain Bitcoin transactions.
-Initially published on the bitcoin-dev mailing list as *TBDXXX* by Burak, is
-has since been named Ark and the protocol design has advanced significantly.
+Ark is a layer 2 protocol for making off-chain Bitcoin transactions. Originally published as *TBDXXX* by Burak on the bitcoin-dev mailing list, it has since been named Ark and the protocol design has advanced significantly.
 
-The goal and result of the Ark protocol is a payments system where people can
-make Bitcoin transactions at very low cost and without requiring any setup. The
-Ark model very closely resembles the UTXO model, which is a key differentiator
-with Lightning.
+The goal of Ark is to enable Bitcoin transactions at very low cost without requiring extensive setup (like opening and funding channels). The Ark model closely resembles Bitcoin's UTXO model.
 
+There are currently two implementations of the Ark protocol in development:
 
+| Implementation | Website | Documentation | Repository |
+|---|---|---|---|
+| **Second** | [second.tech](https://second.tech) | [docs.second.tech](https://docs.second.tech) | [codeberg.org/ark-bitcoin](https://codeberg.org/ark-bitcoin) |
+| **Arkade** | [arkadeos.com](https://arkadeos.com) | [docs.arkadeos.com](https://docs.arkadeos.com) | [github.com/arkade-os](https://github.com/arkade-os) |
 
-#### Lightning Network
+#### Comparing Ark with the Lightning Network
 
-Intuitively, we are inclined to compare Ark with the Lightning Network, because
-it is currently the only second layer on the Bitcoin network.
+Intuitively, we are inclined to compare Ark with the Lightning Network, because Lightning is currently the only true layer 2 on the Bitcoin network.
 
-However, the Ark protocol design has very little in common with Lightning's
-design. Lightning is a payment channel network, where a network of participants
-manage channels amongs pairs of them and payments are routed over paths along
-these payment channels.
+However, the Ark protocol design has very little in common with Lightning's design. Lightning is a payment channel network where participants create channels between pairs of users, forming a network through which payments are routed along paths between these channels. Ark, on the other hand, is a client-server protocol, with users coordinating their payments via a central server while retaining control over their own bitcoin. 
 
-The main difficulty that users experience when trying to use Lightning is that
-users need to have at least one payment channel in order to be able to receive
-payments. On top of having a channel, they also need to have some **inbound
-liquidity**, meaning that their channel counterparty has to commit some amount
-of money into the channel that will then be available for the new user to
-receive.
+The main difficulty users experience with Lightning is the cost and complexity of onboarding. Users must open at least one payment channel to receive payments, requiring an on-chain transaction. Additionally, new users need to acquire **inbound liquidity**—their channel counterparty must commit bitcoin into the channel to make it available for receiving.
 
-This onboarding process of creating one or more channels and acquiring inbound
-liquidity is the main drawback of the Lightning protocol that the Ark protocol
-doesn't have.
-
+Ark eliminates this onboarding complexity entirely. There are no channels to open or liquidity for the user to manage.
 
 ## Shared UTXOs
 
-The Ark protocol is built around the idea of **shared UTXOs**. In principle,
-Lightning also has shared UTXOs, however they are only shared between the two
-channel counterparties. In Ark, UTXOs are shared among a large amount of users,
-potentially up to tens or hundreds of thousands of users.
+The Ark protocol is built around **shared UTXOs**. While Lightning also uses shared UTXOs, they're only shared between two channel counterparties. In Ark, UTXOs are shared among a large number of users— potentially hundreds of thousands!
 
-While in the Lightning Network, payments are made by atomically shifting an
-amount of Bitcoin in a series of channels, in Ark, payments are made by
-exchanging a share in an existing shared UTXO for a share in a new shared UTXO.
-These shares of UTXOs will be called **virtual UTXOs, or VTXOs**.
+In Lightning, payments atomically shift bitcoin amounts across a series of channels. In Ark, payments are made by exchanging a share in an existing shared UTXO for a share in a new shared UTXO. These shares are called **virtual UTXOs, or VTXOs**. Shares in an on-chain UTXO are achieved by creating a tree of off-chain transactions, with each user holding their associated branch and leaf transactions. 
 
-These exchanges are coordinated by a central party, an **Ark Service Provider
-(ASP)**, that facilitates payments, but is never a custodian. Because the UTXO
-is shared among the users in the shared UTXO, they can claim back there Bitcoin
-at all times without depending on the ASP by broadcasting their VTXO
-transactions.
-
+VTXO creation and transfers are coordinated by users via a central party, an **Ark server**, without ever giving the Ark server custody over the bitcoin. Users can always claim their bitcoin on-chain without depending on the Ark server by broadcasting their VTXO transactions in consecutive order until the bitcoin is released to an output only the users control.
 
 ## Rounds and Connectors
 
-Traditional Ark payments happen in so-called **rounds**. The ASP will organize
-these rounds periodically to give the users in the Ark the chance to make
-payments. During a round, any user that has a VTXO in the Ark can participate
-and request the service provider to include a transaction for them in the
-round. The ASP will then construct a new shared UTXO, which will include all
-the payments that are made inside this round.
+Ark's transaction trees are created in **rounds**. The Ark server organizes these rounds periodically, giving users the opportunity to forfeit old VTXOs for new ones—known as a *refresh* or *batch*. During a round, any user with a VTXO can participate and request the Ark server to include a refresh for them. The Ark server then constructs a new shared UTXO containing all refreshes from that round.
 
-The participating users will then relinquish their existing VTXO to the ASP by
-signing an off-chain **forfeit transaction**, which sends their input VTXO to
-the ASP. In return, the ASP creates a new shared on-chain UTXO with the desired
-output VTXOs and broadcast that transaction.
+Participating users sign an off-chain **forfeit transaction** that sends their input VTXO to the Ark server. In return, the Ark server creates and broadcasts a new shared on-chain UTXO with the desired output VTXOs.
 
-The way these transaction are made atomic, meaning that the sending doesn't
-forfeit their VTXOs without having a guarantee that the newly created VTXOs
-will actually confirm, is by making the forfeit transaction dependent on the
-newly created shared UTXO transaction. This is done using **connector outputs**
-which are outputs that are part of the shared UTXO transaction and that will be
-used as an input on the forfeit transactions.
+The round's refresh operations are made atomic through **connector outputs**—outputs in the shared UTXO transaction that are used as inputs for the forfeit transactions. This ensures users don't forfeit their VTXOs without a guarantee that the new VTXOs will confirm.
 
+## Payments and Arkoor
 
-## Arkoor
+Rounds require user interaction and result in on-chain transactions that need confirmation. Because of this, it takes time to hold and complete rounds. 
 
-These rounds require interaction between participating users and because they
-result in an on-chain transaction that needs to be confirmed before the
-transactions can be considered final. Because of this, it takes time to hold rounds.
+Therefore, payments on Ark are handled out-of-round (*OOR* or *arkoor*). This allows Ark users to make instant payments between each other without waiting for rounds.
 
-In order for users to be able to spend their VTXOs more rapidly without needing
-to participate in Ark rounds, there is a way to make **out-of-round (OOR)
-transactions**. These are payments that participants in an Ark can make
-instantly, directly from one party to another.
-
-OOR payments are cosigned by the ASP. In theory, the trust model for OOR
-payments relies on the sender and the ASP not colluding to make a double spend.
-The receiver can then decide to either keep the OOR VTXO and rely on the ASP
-not wanting to lose its reputation by being proven to be dishonest, or decide
-to not have this trust and participate in the next Ark round to cycle this OOR
-VTXO into a new regular VTXO.
-
-
-
-
+OOR payments are cosigned by the Ark server. The trust model relies on the sender and Ark server not colluding to double-spend. Receivers can either accept this trust assumption and keep the OOR VTXO until expiry, or participate in the next round to refresh it into an in-round VTXO.
