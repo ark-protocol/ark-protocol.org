@@ -1,0 +1,23 @@
+# Hugo build output
+public/
+
+# Hugo development files
+.hugo_build.lock
+resources/_gen/
+assets/jsconfig.json
+hugo_stats.json
+
+# Node modules (if using npm for theme development)
+node_modules/
+
+# macOS
+.DS_Store
+
+# Editor files
+.vscode/
+.idea/
+
+# Temporary files
+*.tmp
+*.swp
+*.swo
