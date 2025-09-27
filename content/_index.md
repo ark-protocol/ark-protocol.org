@@ -26,13 +26,15 @@ The main difficulty users experience with Lightning is the cost and complexity o
 
 Ark eliminates this onboarding complexity entirely. There are no channels to open or liquidity for the user to manage.
 
+
 ## Shared UTXOs
 
-The Ark protocol is built around **shared UTXOs**. While Lightning also uses shared UTXOs, they're only shared between two channel counterparties. In Ark, UTXOs are shared among a large number of users— potentially hundreds of thousands!
+The Ark protocol is built around **shared UTXOs**. While Lightning also uses shared UTXOs, they're only shared between two channel counterparties. In Ark, UTXOs are shared among a large number of users—potentially hundreds of thousands!
 
 In Lightning, payments atomically shift bitcoin amounts across a series of channels. In Ark, payments are made by exchanging a share in an existing shared UTXO for a share in a new shared UTXO. These shares are called **virtual UTXOs, or VTXOs**. Shares in an on-chain UTXO are achieved by creating a tree of off-chain transactions, with each user holding their associated branch and leaf transactions. 
 
 VTXO creation and transfers are coordinated by users via a central party, an **Ark server**, without ever giving the Ark server custody over the bitcoin. Users can always claim their bitcoin on-chain without depending on the Ark server by broadcasting their VTXO transactions in consecutive order until the bitcoin is released to an output only the users control.
+
 
 ## Rounds and Connectors
 
@@ -41,6 +43,7 @@ Ark's transaction trees are created in **rounds**. The Ark server organizes thes
 Participating users sign an off-chain **forfeit transaction** that sends their input VTXO to the Ark server. In return, the Ark server creates and broadcasts a new shared on-chain UTXO with the desired output VTXOs.
 
 The round's refresh operations are made atomic through **connector outputs**—outputs in the shared UTXO transaction that are used as inputs for the forfeit transactions. This ensures users don't forfeit their VTXOs without a guarantee that the new VTXOs will confirm.
+
 
 ## Payments and Arkoor
 
