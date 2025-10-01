@@ -4,9 +4,9 @@ weight = 40
 +++
 
 
-On the [VTXO page](vtxos), we see that the VTXO tree relies on a covenant to make the transactions in the tree pre-determined. Ideally, we can use some kind of introspection primitive native to Bitcoin for this, like [CTV](https://covenants.info/proposals/ctv) or [TXHASH](https://covenants.info/proposals/txhash). However, currently no introspection is available in Bitcoin.
+On the [VTXO page](vtxos), we see that the VTXO tree relies on a covenant to make the transactions in the tree pre-determined. Ideally, we can use some kind of introspection primitive native to bitcoin for this, like [CTV](https://covenants.info/proposals/ctv) or [TXHASH](https://covenants.info/proposals/txhash). However, currently no introspection is available in bitcoin.
 
-This page outlines a variant of Ark, called clArk, that doesn't require an introspection primitive and can therefore be implemented on Bitcoin today.
+This page outlines a variant of Ark, called clArk, that doesn't require an introspection primitive and can therefore be implemented on bitcoin today.
 
 
 ## Pre-Signed Transactions

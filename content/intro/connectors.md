@@ -6,7 +6,7 @@ weight = 20
 
 ## Ark Rounds
 
-The Ark protocol is driven by a process called *rounds*. Each round, the Ark server allows users, owners of VTXOs, to refresh their VTXOs in return for new ones. Ark refreshes as such can be thought about similarly as regular Bitcoin transactions where in each refresh some input VTXOs are spent and some output VTXOs are created. However, this analogy is only conceptual, there are no actual "Ark transactions" in the same sense as there are Bitcoin transactions.
+The Ark protocol is driven by a process called *rounds*. Each round, the Ark server allows users, owners of VTXOs, to refresh their VTXOs in return for new ones. Ark refreshes as such can be thought about similarly as regular bitcoin transactions where in each refresh some input VTXOs are spent and some output VTXOs are created. However, this analogy is only conceptual, there are no actual "Ark transactions" in the same sense as there are bitcoin transactions.
 
 Each successful round results in the creation of an **Ark round transaction**. This transaction contains an output that creates a new [covenant tree](vtxos#covenant-trees). This tree contains all the output VTXOs of all the Ark refreshes made in this round.
 

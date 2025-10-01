@@ -4,18 +4,18 @@ weight = 10
 +++
 
 
-A **virtual transaction output (VTXO)** is a Bitcoin transaction output held by a user but not broadcast or confirmed on-chain. Just as Bitcoin UTXOs are destroyed and created in every transaction, VTXOs are spent and created in Ark transactions.
+A **virtual transaction output (VTXO)** is a bitcoin transaction output held by a user but not broadcast or confirmed on-chain. Just as bitcoin UTXOs are destroyed and created in every transaction, VTXOs are spent and created in Ark transactions.
 
-The main difference between a VTXO and a UTXO is that VTXOs are off-chain. A VTXO represents valid Bitcoin transactions that could be broadcast and confirmed, but the user chooses not to broadcast them yet. In effect, a VTXO is **the ability to create a UTXO** at a later time.
+The main difference between a VTXO and a UTXO is that VTXOs are off-chain. A VTXO represents valid bitcoin transactions that could be broadcast and confirmed, but the user chooses not to broadcast them yet. In effect, a VTXO is **the ability to create a UTXO** at a later time.
 
-Since creating UTXOs on the Bitcoin blockchain costs fees, the purpose of Ark is to enable users to transact using VTXOs without paying transaction fees to convert them into UTXOs.
+Since creating UTXOs on the bitcoin blockchain costs fees, the purpose of Ark is to enable users to transact using VTXOs without paying transaction fees to convert them into UTXOs.
 
 
 ## Covenants
 
-The construction of Ark VTXOs requires pre-determining a group of transactions ahead of time. There are two approaches: pre-signing transactions and keeping them off-chain, or using **covenants**—a proposed Bitcoin protocol primitive that allows users to pre-determine a series of transactions ahead of time without pre-signing them.
+The construction of Ark VTXOs requires pre-determining a group of transactions ahead of time. There are two approaches: pre-signing transactions and keeping them off-chain, or using **covenants**—a proposed bitcoin protocol primitive that allows users to pre-determine a series of transactions ahead of time without pre-signing them.
 
-For Ark, VTXOs are easiest to understand when built with a simple covenant like [`OP_CHECKTEMPLATEVERIFY`](https://covenants.info/proposals/ctv/). However, until covenants are available on Bitcoin mainnet, VTXOs can use **pseudo covenants** that emulate covenants through a series of pre-signed transactions. To create a pseudo covenant, multiple signers pre-sign a series of transactions then delete their keys so that no other alternative series of transactions can be made to replace the pre-signed ones.
+For Ark, VTXOs are easiest to understand when built with a simple covenant like [`OP_CHECKTEMPLATEVERIFY`](https://covenants.info/proposals/ctv/). However, until covenants are available on bitcoin mainnet, VTXOs can use **pseudo covenants** that emulate covenants through a series of pre-signed transactions. To create a pseudo covenant, multiple signers pre-sign a series of transactions then delete their keys so that no other alternative series of transactions can be made to replace the pre-signed ones.
 
 Below is an example of a simple covenant. The transaction above the line is confirmed on-chain and it has a *covenant output*. The transaction below the line is off-chain—Alice, Bob, Carol and Dave can broadcast it anytime to claim their 1 BTC outputs. These outputs are VTXOs: unconfirmed transaction outputs that users can create on-chain any time by broadcasting a transaction.
 

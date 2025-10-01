@@ -5,9 +5,9 @@ title = "Ark Protocol"
 
 
 
-Ark is a layer 2 protocol for making off-chain Bitcoin transactions. Originally published as *TBDXXX* by Burak on the bitcoin-dev mailing list, it has since been named Ark and the protocol design has advanced significantly.
+Ark is a layer 2 protocol for making off-chain bitcoin transactions. Originally published as *TBDXXX* by Burak on the bitcoin-dev mailing list, it has since been named Ark and the protocol design has advanced significantly.
 
-The goal of Ark is to enable Bitcoin transactions at very low cost without requiring extensive setup (like opening and funding channels). The Ark model closely resembles Bitcoin's UTXO model.
+The goal of Ark is to enable bitcoin transactions at very low cost without requiring extensive setup (like opening and funding channels). The Ark model closely resembles bitcoin's UTXO model.
 
 There are currently two implementations of the Ark protocol in development:
 
@@ -18,7 +18,7 @@ There are currently two implementations of the Ark protocol in development:
 
 #### Comparing Ark with the Lightning Network
 
-Intuitively, we are inclined to compare Ark with the Lightning Network, because Lightning is currently the only true layer 2 on the Bitcoin network.
+Intuitively, we are inclined to compare Ark with the Lightning Network, because Lightning is currently the only true layer 2 on the bitcoin network.
 
 However, the Ark protocol design has very little in common with Lightning's design. Lightning is a payment channel network where participants create channels between pairs of users, forming a network through which payments are routed along paths between these channels. Ark, on the other hand, is a client-server protocol, with users coordinating their payments via a central server while retaining control over their own bitcoin. 
 

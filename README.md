@@ -2,9 +2,9 @@
 
 This is the source code for the [ark-protocol.org](https://ark-protocol.org), a community-driven resource covering all things related to the Ark protocol.
 
-Ark is a layer 2 protocol for making off-chain Bitcoin transactions, offering a payments system where users can make Bitcoin transactions at very low cost without requiring extensive setup like opening channels.
+Ark is a layer 2 protocol for making off-chain bitcoin transactions, offering a payments system where users can make bitcoin transactions at very low cost without requiring extensive setup like opening channels.
 
-This site aims to be a neutral source of information about the Ark protocol, its various implementations, and how it compares to other Bitcoin layer 2 solutions. While the primary maintainer is from [Second](https://second.tech), we welcome contributions from the entire bitcoin community!
+This site aims to be a neutral source of information about the Ark protocol, its various implementations, and how it compares to other bitcoin layer 2 solutions. While the primary maintainer is from [Second](https://second.tech), we welcome contributions from the entire bitcoin community!
 
 ## Local development
 
