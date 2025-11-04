@@ -13,7 +13,7 @@ There are currently two implementations of the Ark protocol in development:
 
 | Implementation | Website | Documentation | Repository |
 |---|---|---|---|
-| **Second** | [second.tech](https://second.tech) | [docs.second.tech](https://docs.second.tech) | [codeberg.org/ark-bitcoin](https://codeberg.org/ark-bitcoin) |
+| **Second** | [second.tech](https://second.tech) | [docs.second.tech](https://docs.second.tech) | [gitlab.com/ark-bitcoin](https://gitlab.com/ark-bitcoin) |
 | **Arkade** | [arkadeos.com](https://arkadeos.com) | [docs.arkadeos.com](https://docs.arkadeos.com) | [github.com/arkade-os](https://github.com/arkade-os) |
 
 #### Comparing Ark with the Lightning Network
